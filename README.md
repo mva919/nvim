@@ -1,1 +1,1 @@
-test
+Neovim config
