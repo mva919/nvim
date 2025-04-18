@@ -1,5 +1,33 @@
 require("config.lazy")
 
+local function check_for_config_update()
+	vim.fn.system("git fetch")
+	local status = vim.fn.system("git status")
+	local isUpToDate = string.find(status, "git pull")
+	if isUpToDate == nil then
+		return
+	end
+
+	local choice = nil
+	while choice ~= "y" and choice ~= "n" do
+		choice = vim.fn.input(
+			"New config changes dectected from origin:\n" .. status .. "\nDo you wish to sync with them? (Y/n)"
+		)
+	end
+
+	if choice == "y" then
+		print("\nSyncing with remote...\n")
+		print(vim.fn.system("git pull"))
+		print("\nSyncing complete.\n")
+	end
+end
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		check_for_config_update()
+	end,
+})
+
 vim.keymap.set("n", "<leader><leader>x", "<Cmd>source %<CR>", { desc = "Source current file" })
 vim.keymap.set("v", "<leader>x", ":lua<CR>", { desc = "Source highlighted text" })
 vim.keymap.set("n", "<leader>x", ":.lua<CR>", { desc = "Source current line" })
