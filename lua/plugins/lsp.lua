@@ -30,6 +30,7 @@ return {
         lua_ls = {},
         pylsp = {},
         clangd = {},
+        gopls = {},
       },
     },
     config = function(_, opts)
