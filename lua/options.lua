@@ -1,6 +1,6 @@
 -- Must set leader keys before loading plugins
-vim.g.mapleader = ' '
-vim.g.localleader = ' '
+vim.g.mapleader = " "
+vim.g.localleader = " "
 
 vim.g.have_nerd_font = true
 
@@ -8,9 +8,9 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Enabling mouse mode (easier for resizing windows)
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
--- Hiding the mode since it already shows up on status line 
+-- Hiding the mode since it already shows up on status line
 vim.o.showmode = false
 
 -- Wrapped lines will continue on the line below with the same indentation applied as the beginning of the non-wrapped line.
@@ -25,7 +25,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Always have the signcolumn showing (even if empty)
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 
 -- When splitting horizontally, puts new window below the current one
 vim.o.splitbelow = true
@@ -48,13 +48,16 @@ vim.o.confirm = true
 
 -- Display hidden whitespace characters
 vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+-- Insert spaces for tabs
+vim.o.expandtab = true
 
 -- When doing incremental commands it shows changes that will be applied off screen
-vim.o.inccommand = 'split'
+vim.o.inccommand = "split"
 
 -- Syncing with OS clipboard
 -- Scheduling the setting after 'UIEnter' because it could increase start up time
 vim.schedule(function()
-	vim.o.clipboard = 'unnamedplus'
+	vim.o.clipboard = "unnamedplus"
 end)

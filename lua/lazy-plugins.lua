@@ -1,7 +1,8 @@
+---@diagnostic disable: missing-fields
 require('lazy').setup({
-	spec = { 
-		{ import = 'plugins' }
-	}
+  spec = {
+    { import = 'plugins' }
+  }
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -23,4 +24,3 @@ require('lazy').setup({
     },
   },
 })
-
