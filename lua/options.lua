@@ -59,5 +59,5 @@ vim.o.inccommand = "split"
 -- Syncing with OS clipboard
 -- Scheduling the setting after 'UIEnter' because it could increase start up time
 vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
+  vim.o.clipboard = "unnamedplus"
 end)
